@@ -1,0 +1,23 @@
+---
+apiVersion: metal.sidero.dev/v1alpha1
+kind: ServerClass
+metadata:
+  name: rpi.8gb
+spec:
+  selector:
+    matchLabels:
+      metal.sidero.dev/serverclass: rpi.8gb
+  qualifiers:
+    systemInformation:
+    - manufacturer: Raspberry Pi Foundation
+      productName: Raspberry Pi 4 Model B
+      version: D03115
+  environmentRef:
+    name: rpi4
+  configPatches:
+  - op: replace
+    path: /machine/install/image
+    value: ghcr.io/frezbo/installer:v1.1.0-alpha.1-67-gcc4131c41
+  - op: replace
+    path: /machine/install/disk
+    value: /dev/mmcblk1
