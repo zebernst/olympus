@@ -7,3 +7,4 @@ resources:
 - serverclass/raspberrypi-4gb.yaml
 - serverclass/raspberrypi-8gb.yaml
 - deployment.patch.yaml
+- clusters

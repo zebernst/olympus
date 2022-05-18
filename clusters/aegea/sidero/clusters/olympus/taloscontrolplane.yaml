@@ -1,0 +1,38 @@
+---
+apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
+kind: TalosControlPlane
+metadata:
+  name: olympus-cp
+  namespace: sidero-system
+spec:
+  controlPlaneConfig:
+    controlplane:
+      configPatches:
+      - op: add
+        path: /machine/network
+        value:
+          interfaces:
+          - interface: eth0
+            dhcp: true
+            vip:
+              ip: 192.168.64.4
+      generateType: controlplane
+      talosVersion: v1.0.5
+    init:
+      configPatches:
+      - op: add
+        path: /machine/network
+        value:
+          interfaces:
+          - interface: eth0
+            dhcp: true
+            vip:
+              ip: 192.168.64.4
+      generateType: init
+      talosVersion: v1.0.5
+  infrastructureTemplate:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+    kind: MetalMachineTemplate
+    name: olympus-cp
+  replicas: 3
+  version: v1.23.5

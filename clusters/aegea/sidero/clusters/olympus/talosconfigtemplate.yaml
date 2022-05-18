@@ -1,0 +1,11 @@
+---
+apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
+kind: TalosConfigTemplate
+metadata:
+  name: olympus-workers
+  namespace: sidero-system
+spec:
+  template:
+    spec:
+      generateType: join
+      talosVersion: v1.0.5
