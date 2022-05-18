@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./clusters/aegea/sidero-system
+  path: ./clusters/aegea/sidero
   prune: true
   sourceRef:
     kind: GitRepository
