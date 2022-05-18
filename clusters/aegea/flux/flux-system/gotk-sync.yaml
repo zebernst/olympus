@@ -9,6 +9,14 @@ spec:
   interval: 1m0s
   ref:
     branch: main
+  ignore: |
+    # exclude all
+    /*
+    # include cluster directory
+    !/clusters/aegea
+    # exclude files from gitops dirs
+    /clusters/**/*.md
+    /clusters/**/*.tmpl
   secretRef:
     name: flux-system
   url: ssh://git@github.com/zebernst/olympus
@@ -20,7 +28,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./clusters/aegea
+  path: ./clusters/aegea/flux
   prune: true
   sourceRef:
     kind: GitRepository
