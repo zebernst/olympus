@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: sidero-system
 resources:
 - environment/rpi4.yaml
-- secret/ghcr.sops.yaml
+- secret/ghcr.enc.yaml
 - serverclass/raspberrypi-4gb.yaml
 - serverclass/raspberrypi-8gb.yaml
 - deployment.patch.yaml
