@@ -19,7 +19,10 @@ spec:
   healthChecks:
   - kind: StatefulSet
     name: synology-csi-controller
+    namespace: synology-csi
   - kind: StatefulSet
     name: synology-csi-snapshotter
+    namespace: synology-csi
   - kind: DaemonSet
     name: synology-csi-node
+    namespace: synology-csi

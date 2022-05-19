@@ -12,4 +12,4 @@ resources:
 secretGenerator:
 - name: client-info-secret
   files:
-  - client-info.yaml=client-info.enc.yaml
+  - client-info.yml=client-info.enc.yaml
