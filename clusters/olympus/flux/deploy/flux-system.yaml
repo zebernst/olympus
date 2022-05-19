@@ -14,3 +14,19 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux
+  patches:
+    - patch: |-
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: not-important
+        spec:
+          template:
+            spec:
+              tolerations:
+              - effect: NoExecute
+                operator: Exists
+              - effect: NoSchedule
+                operator: Exists
+      target:
+        kind: Deployment
