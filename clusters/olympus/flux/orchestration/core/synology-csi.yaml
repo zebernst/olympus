@@ -15,14 +15,27 @@ spec:
     kind: GitRepository
     name: olympus
   path: clusters/olympus/manifests/core/synology-csi
-  timeout: 5m
-  healthChecks:
-  - kind: StatefulSet
-    name: synology-csi-controller
-    namespace: synology-csi
-  - kind: StatefulSet
-    name: synology-csi-snapshotter
-    namespace: synology-csi
-  - kind: DaemonSet
-    name: synology-csi-node
-    namespace: synology-csi
+  wait: true
+  timeout: 1m
+  patches:
+  - target:
+      kind: StatefulSet
+      namespace: synology-csi
+    patch: |
+      - op: add
+        path: /spec/template/spec/tolerations
+        value:
+        - effect: NoExecute
+          operator: Exists
+        - effect: NoSchedule
+          operator: Exists
+      - op: add
+        path: /spec/template/spec/affinity
+        value:
+          nodeAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 25
+              preference:
+                matchExpressions:
+                - key: node-role.kubernetes.io/control-plane
+                  operator: Exists
