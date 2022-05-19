@@ -81,7 +81,7 @@ spec:
           capabilities:
             add: ["SYS_ADMIN"]
           allowPrivilegeEscalation: true
-        image: ghcr.io/zebernst/synology-csi:v1.1.0
+        image: ghcr.io/zebernst/synology-csi:v1.1.0@sha256:17f3db5ad05631eb2ab1a92d341113495ad3a5ad8117e34b88c9478d7eb854ac
         args:
         - --nodeid=NotUsed
         - --endpoint=$(CSI_ENDPOINT)
