@@ -25,7 +25,7 @@ spec:
   postBuild:
     substituteFrom:
       - kind: ConfigMap
-        name: cluster-config
+        name: cluster-settings
       - kind: Secret
         name: cluster-secrets
   patches:
@@ -43,7 +43,7 @@ spec:
           postBuild:
             substituteFrom:
               - kind: ConfigMap
-                name: cluster-config
+                name: cluster-settings
               - kind: Secret
                 name: cluster-secrets
       target:
