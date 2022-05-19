@@ -1,0 +1,21 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: olympus
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  ignore: |
+    # exclude all
+    /*
+    # include cluster directory
+    !/clusters/olympus
+    # exclude files from gitops dirs
+    /clusters/**/*.md
+    /clusters/**/*.tmpl
+  secretRef:
+    name: olympus-deploy-key
+  url: ssh://git@github.com/zebernst/olympus
