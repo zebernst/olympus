@@ -1,0 +1,26 @@
+clients:
+    - host: ENC[AES256_GCM,data:34hth9Am/frlOHdM,iv:F94oWKvtJYNVFhnmcOX/myKbbSFzRB4XKXERuWUjM5A=,tag:ncEUUQmDtEhTNl/Xc1MAzQ==,type:str]
+      port: ENC[AES256_GCM,data:4sciDg==,iv:4ud5LwslqWgCP8jlP6ntw0R8PxlZA3KYZhp4Yf+11sM=,tag:Jie5ZZp1tnyN7pktOAwtkg==,type:int]
+      username: ENC[AES256_GCM,data:4iqsP/iyYyQ=,iv:2hw8R0TZqBwnACm4hvDGL9KWjs6xJfVsKCTyDsT/rdE=,tag:pat2M8KIlz4hDd1VChWIdg==,type:str]
+      password: ENC[AES256_GCM,data:+j5o/CINxDGWToRzruw7dz2n,iv:RWbpvSiFXYWi4aMzLr03/RDuGTgTseyLpfMCCFNd2kc=,tag:tEMpEqUBw/SCPhTC2pWYcA==,type:str]
+      https: ENC[AES256_GCM,data:6FsAlQ==,iv:Lfyq9bsgN7Aas2VTXm2Hmq+gpSqkFs73qr/vqPI7CDM=,tag:/wptzOIlSBAVGYWffHaO8w==,type:bool]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1duclwfw6qyjzwjnw3frakh6j25ultdeszdr6csulgl3j0gqntpdqcxysgl
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5aEpNVFpFQ2o2dDA4WXlT
+            eklmaWdwd0huR0dTQWFqekNvQW5lV1VRWkZnCkUyajlveCs5cFM2TGlSODY3MDh0
+            U0RUdWR1cjBXaDJMeDhXVEliQjVmVTgKLS0tIEtoQ3gybTZrVGFxYUJvZUY0blE3
+            VUMzY0gyTG5mbStMMHNJQ2VjVVlqbHcKHs4pxIe4qrKEf3G6TEe0DiABwNrvleSk
+            By3n+h10iP8bZJ4WqSsZ375xQoqBjjUtg1MMnLkyOTLq+vpsUD35fg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2022-05-19T03:52:54Z"
+    mac: ENC[AES256_GCM,data:VY10FhE6XHxJgHdgAy6nNzRRraZx+Asub5Wtjm+0xrerw9rL/O54TtFjXR7ENIPNlPuwBz1wf2LxtPMu4JLShbrWeyxIqal1/NajE/ErHTba4etSWraCAjlK8Cmqzn5v7kGQfWC3DKUTNe7CvnWX+3QKbmTTXIDdQdnEmfD/eg8=,iv:bWqSOz3rHTR0Ov8BXIj3vEHSMAi6aYgLu2lm+LIp44c=,tag:2RMO3t2YqhCLMX04zhMNEw==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.7.2

@@ -1,0 +1,25 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: synology-csi
+  namespace: flux-system
+spec:
+  targetNamespace: synology-csi
+  dependsOn:
+    - name: external-snapshotter-crds
+    - name: snapshot-controller
+  interval: 15m
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: olympus
+  path: clusters/olympus/manifests/core/synology-csi
+  timeout: 5m
+  healthChecks:
+  - kind: StatefulSet
+    name: synology-csi-controller
+  - kind: StatefulSet
+    name: synology-csi-snapshotter
+  - kind: DaemonSet
+    name: synology-csi-node
