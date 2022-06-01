@@ -5,6 +5,7 @@ metadata:
   name: flux-sources
   namespace: flux-system
 spec:
+  targetNamespace: flux-system
   interval: 10m
   path: clusters/olympus/flux/sources
   prune: true
