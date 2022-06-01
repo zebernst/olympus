@@ -1,0 +1,18 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: kube-prometheus-stack
+  namespace: flux-system
+spec:
+  targetNamespace: monitoring
+  dependsOn:
+  - name: namespaces
+  - name: synology-csi
+  interval: 5m
+  path: clusters/olympus/manifests/monitoring/kube-prometheus-stack
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: olympus
