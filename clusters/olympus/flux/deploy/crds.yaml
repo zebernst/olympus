@@ -6,10 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-config
-    - name: flux-sources
-    - name: flux-system
-  interval: 10m0s
+  - name: cluster-config
+  - name: flux-sources
+  - name: flux-system
+  interval: 10m
   path: clusters/olympus/crds
   prune: true
   wait: true

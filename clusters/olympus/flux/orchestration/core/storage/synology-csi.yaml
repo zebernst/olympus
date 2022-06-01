@@ -7,14 +7,14 @@ metadata:
 spec:
   targetNamespace: synology-csi
   dependsOn:
-    - name: external-snapshotter-crds
-    - name: snapshot-controller
-  interval: 15m
+  - name: external-snapshotter-crds
+  - name: snapshot-controller
+  interval: 5m
   prune: false
   sourceRef:
     kind: GitRepository
     name: olympus
-  path: clusters/olympus/manifests/core/synology-csi
+  path: clusters/olympus/manifests/storage/synology-csi
   wait: true
   timeout: 1m
   patches:

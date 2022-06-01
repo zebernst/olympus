@@ -6,4 +6,4 @@ spec:
   attachRequired: true # Indicates the driver requires an attach operation (TODO: ControllerPublishVolume should be implemented)
   podInfoOnMount: true
   volumeLifecycleModes:
-    - Persistent
+  - Persistent

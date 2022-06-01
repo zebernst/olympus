@@ -6,9 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: external-snapshotter-crds
-  interval: 15m
+  - name: external-snapshotter-crds
+  interval: 5m
   prune: false
+  wait: true
   sourceRef:
     kind: GitRepository
     name: external-snapshotter-source

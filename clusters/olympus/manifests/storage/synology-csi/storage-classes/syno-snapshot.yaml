@@ -1,7 +1,7 @@
 apiVersion: snapshot.storage.k8s.io/v1
 kind: VolumeSnapshotClass
 metadata:
-  name: synology-lun-snapshot
+  name: syno-snapshot
 driver: csi.san.synology.com
 deletionPolicy: Delete
 parameters:

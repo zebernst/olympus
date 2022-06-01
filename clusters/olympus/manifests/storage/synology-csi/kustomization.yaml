@@ -1,13 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: synology-csi
 resources:
 - controller.yaml
 - csi-driver.yaml
 - node.yaml
 - snapshotter.yaml
-- storage-classes/synology-lun.yaml
-- storage-classes/synology-lun-snapshot.yaml
+- storage-classes/syno-btrfs.yaml
+- storage-classes/syno-btrfs-reclaim.yaml
+- storage-classes/syno-ext4.yaml
+- storage-classes/syno-ext4-reclaim.yaml
+- storage-classes/syno-snapshot.yaml
 
 secretGenerator:
 - name: client-info-secret
