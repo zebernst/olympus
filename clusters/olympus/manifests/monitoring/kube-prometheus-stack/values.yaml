@@ -81,6 +81,13 @@ prometheus:
           resources:
             requests:
               storage: 15Gi
+    initContainers:
+    - name: init-chown-data
+      image: alpine:latest
+      command: ["sudo", "chown", "-R", "nobody:nobody", "/prometheus"]
+      volumeMounts:
+      - name: prometheus-kps-prometheus-db
+        mountPath: /prometheus
     additionalScrapeConfigs: {}
 #    - job_name: node-exporter
 #      honor_timestamps: true
