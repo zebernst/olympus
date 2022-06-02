@@ -80,11 +80,20 @@ prometheus:
           storageClassName: syno-ext4-reclaim
           resources:
             requests:
-              storage: 15Gi
+              storage: 20Gi
+    securityContext:
+      fsGroup: 65534
+      runAsGroup: 65534
+      runAsUser: 65534
+      runAsNonRoot: true
     initContainers:
     - name: init-chown-data
       image: alpine:latest
-      command: ["sudo", "chown", "-R", "nobody:nobody", "/prometheus"]
+      command: ["sh", "-c", "chown -R 65534:65534 /prometheus; /bin/chmod -R 777 /prometheus;"]
+      securityContext:
+        runAsGroup: 0
+        runAsUser: 0
+        runAsNonRoot: false
       volumeMounts:
       - name: prometheus-kps-prometheus-db
         mountPath: /prometheus
