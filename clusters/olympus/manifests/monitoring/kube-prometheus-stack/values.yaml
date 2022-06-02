@@ -1,5 +1,5 @@
 ---
-fullnameOverride: prometheus
+fullnameOverride: kps
 server:
   resources:
     requests:
@@ -24,7 +24,7 @@ alertmanager:
     storage:
       volumeClaimTemplate:
         spec:
-          storageClassName: syno-btrfs-reclaim
+          storageClassName: syno-ext4-reclaim
           resources:
             requests:
               storage: 5Gi
@@ -77,7 +77,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: syno-btrfs-reclaim
+          storageClassName: syno-ext4-reclaim
           resources:
             requests:
               storage: 15Gi

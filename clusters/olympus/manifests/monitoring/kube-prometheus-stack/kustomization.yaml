@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - helm-release.yaml
 configMapGenerator:
-- name: kube-prometheus-values
+- name: kps-values
   files:
   - values.yaml
 configurations:
