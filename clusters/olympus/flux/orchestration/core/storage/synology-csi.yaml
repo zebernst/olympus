@@ -10,7 +10,7 @@ spec:
   - name: external-snapshotter-crds
   - name: snapshot-controller
   interval: 5m
-  prune: false
+  prune: true
   sourceRef:
     kind: GitRepository
     name: olympus
