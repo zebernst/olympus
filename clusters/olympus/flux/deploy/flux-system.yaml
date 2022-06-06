@@ -15,24 +15,26 @@ spec:
     kind: GitRepository
     name: flux
   patches:
-  - target:
-      kind: Deployment
-      namespace: flux-system
-    patch: |
-      - op: add
-        path: /spec/template/spec/tolerations
-        value:
-        - effect: NoExecute
-          operator: Exists
-        - effect: NoSchedule
-          operator: Exists
-      - op: add
-        path: /spec/template/spec/affinity
-        value:
-          nodeAffinity:
-            preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 25
-              preference:
-                matchExpressions:
-                - key: node-role.kubernetes.io/control-plane
-                  operator: Exists
+    - target:
+        kind: Deployment
+      patch: |-
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: not-used
+        spec:
+          template:
+            spec:
+              tolerations:
+              - effect: NoExecute
+                operator: Exists
+              - effect: NoSchedule
+                operator: Exists
+              affinity:
+                nodeAffinity:
+                  preferredDuringSchedulingIgnoredDuringExecution:
+                  - weight: 25
+                    preference:
+                      matchExpressions:
+                      - key: node-role.kubernetes.io/control-plane
+                        operator: Exists
