@@ -25,3 +25,6 @@ spec:
     path: /machine/install/extensions
     value:
     - image: ghcr.io/siderolabs/iscsi-tools:v0.1.0
+  - op: add
+    path: /machine/sysctls/kernel.kexec_load_disabled
+    value: 1
