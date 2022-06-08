@@ -14,6 +14,7 @@ spec:
       version: D03115
   environmentRef:
     name: rpi4
+  bootFromDiskMethod: ipxe-sanboot
   configPatches:
   - op: replace
     path: /machine/install/image
