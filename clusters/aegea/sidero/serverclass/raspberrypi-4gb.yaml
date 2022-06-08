@@ -17,9 +17,6 @@ spec:
   bootFromDiskMethod: ipxe-sanboot
   configPatches:
   - op: replace
-    path: /machine/install/image
-    value: ghcr.io/frezbo/installer:v1.1.0-alpha.1-67-gcc4131c41
-  - op: replace
     path: /machine/install/disk
     value: /dev/mmcblk1
   - op: add
