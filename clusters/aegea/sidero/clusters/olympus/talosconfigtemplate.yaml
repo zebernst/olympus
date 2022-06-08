@@ -9,3 +9,8 @@ spec:
     spec:
       generateType: join
       talosVersion: v1.0.5
+      configPatches:
+      - op: add
+        path: /machine/install/extensions
+        value:
+        - image: ghcr.io/siderolabs/iscsi-tools:v0.1.0

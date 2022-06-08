@@ -23,9 +23,5 @@ spec:
     path: /machine/install/disk
     value: /dev/mmcblk1
   - op: add
-    path: /machine/install/extensions
-    value:
-    - image: ghcr.io/siderolabs/iscsi-tools:v0.1.0
-  - op: add
     path: /machine/sysctls/kernel.kexec_load_disabled
     value: 1
