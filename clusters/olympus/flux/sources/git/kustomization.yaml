@@ -5,4 +5,5 @@ resources:
 - external-snapshotter.yaml
 - flux.yaml
 - kube-prometheus-stack.yaml
+- kubelet-serving-cert-approver.yaml
 - olympus.yaml
