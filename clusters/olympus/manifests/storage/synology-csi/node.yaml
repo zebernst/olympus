@@ -83,6 +83,13 @@ spec:
           mountPath: /csi
         - name: registration-dir
           mountPath: /registration
+        resources:
+          requests:
+            cpu: 10m
+            memory: 27M
+          limits:
+            cpu: 71m
+            memory: 75M
       - name: csi-plugin
         securityContext:
           privileged: true
@@ -114,6 +121,13 @@ spec:
           mountPath: /host
         - name: device-dir
           mountPath: /dev
+        resources:
+          requests:
+            cpu: 10m
+            memory: 27M
+          limits:
+            cpu: 71m
+            memory: 75M
       volumes:
       - name: kubelet-dir
         hostPath:
