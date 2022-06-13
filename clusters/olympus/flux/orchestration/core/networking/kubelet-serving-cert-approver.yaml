@@ -5,7 +5,7 @@ metadata:
   name: kubelet-serving-cert-approver
   namespace: flux-system
 spec:
-  targetNamespace: kubelet-csr-approver-system
+  targetNamespace: network
   dependsOn:
   - name: namespaces
   interval: 5m
