@@ -1,0 +1,7 @@
+address-pools:
+- name: default
+  protocol: layer2
+  addresses:
+  - ${METALLB_IP_RANGE}
+  avoid-buggy-ips: true
+  auto-assign: false

@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: metallb
+  namespace: flux-system
+spec:
+  targetNamespace: metallb-system
+  dependsOn:
+  - name: namespaces
+  interval: 5m
+  path: clusters/olympus/manifests/networking/metallb
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: olympus
