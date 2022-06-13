@@ -16,6 +16,10 @@ spec:
             dhcp: true
             vip:
               ip: 192.168.64.4
+      - op: add
+        path: /machine/kubelet/extraArgs
+        value:
+          rotate-server-certificates: true
       generateType: controlplane
       talosVersion: v1.1.0-beta.1
   infrastructureTemplate:
