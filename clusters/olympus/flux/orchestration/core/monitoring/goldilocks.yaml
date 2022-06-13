@@ -1,0 +1,19 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: goldilocks
+  namespace: flux-system
+spec:
+  targetNamespace: monitoring
+  dependsOn:
+  - name: namespaces
+  - name: metrics-server
+  - name: vertical-pod-autoscaler
+  interval: 5m
+  path: clusters/olympus/manifests/monitoring/goldilocks
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: olympus
