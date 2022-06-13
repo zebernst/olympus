@@ -15,26 +15,104 @@ spec:
     kind: GitRepository
     name: flux
   patches:
-    - target:
-        kind: Deployment
-      patch: |-
-        apiVersion: apps/v1
-        kind: Deployment
-        metadata:
-          name: not-used
-        spec:
-          template:
-            spec:
-              tolerations:
-              - effect: NoExecute
-                operator: Exists
-              - effect: NoSchedule
-                operator: Exists
-              affinity:
-                nodeAffinity:
-                  preferredDuringSchedulingIgnoredDuringExecution:
-                  - weight: 25
-                    preference:
-                      matchExpressions:
-                      - key: node-role.kubernetes.io/control-plane
-                        operator: Exists
+  - target:
+      kind: Deployment
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: not-used
+      spec:
+        template:
+          spec:
+            tolerations:
+            - effect: NoExecute
+              operator: Exists
+            - effect: NoSchedule
+              operator: Exists
+            affinity:
+              nodeAffinity:
+                preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 25
+                  preference:
+                    matchExpressions:
+                    - key: node-role.kubernetes.io/control-plane
+                      operator: Exists
+  - target:
+      kind: Deployment
+      name: helm-controller
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 15m
+            memory: 162M
+          limits:
+            cpu: 1346m
+            memory: 1209M
+  - target:
+      kind: Deployment
+      name: image-automation-controller
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 15m
+            memory: 53M
+          limits:
+            cpu: 81m
+            memory: 175M
+  - target:
+      kind: Deployment
+      name: image-reflector-controller
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 22m
+            memory: 53M
+          limits:
+            cpu: 170m
+            memory: 367M
+  - target:
+      kind: Deployment
+      name: kustomize-controller
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 22m
+            memory: 181M
+          limits:
+            cpu: 2005m
+            memory: 1355M
+  - target:
+      kind: Deployment
+      name: notification-controller
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 15m
+            memory: 53M
+          limits:
+            cpu: 81m
+            memory: 175M
+  - target:
+      kind: Deployment
+      name: source-controller
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 15m
+            memory: 78M
+          limits:
+            cpu: 81m
+            memory: 579M
