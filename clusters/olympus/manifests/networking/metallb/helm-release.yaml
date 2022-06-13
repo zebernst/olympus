@@ -14,6 +14,8 @@ spec:
         name: metallb
         namespace: flux-system
       interval: 5m
+  values:
+    existingConfigMap: metallb-config
   valuesFrom:
   - kind: ConfigMap
     name: metallb-values
