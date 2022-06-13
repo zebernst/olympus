@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - kube-prometheus-stack.yaml
 - metrics-server.yaml
+- vpa.yaml
