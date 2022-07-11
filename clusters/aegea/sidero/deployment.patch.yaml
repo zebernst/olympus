@@ -26,7 +26,7 @@ spec:
       - name: tftp-folder
         emptyDir: { }
       initContainers:
-      - image: ghcr.io/zebernst/raspberrypi4-uefi:v1.1.0-alpha.0-41-g7add479@sha256:b9a891cefd159b204a480b036d3f1c4b4f894beb2bf7db879f66a5ae6a798115
+      - image: ghcr.io/zebernst/raspberrypi4-uefi:v1.2.0-alpha.0-20-g247f567@sha256:fc7005ecb71354aa596566c425aa2f88b66ecbba0383737a58114bec71b2e5f8
         imagePullPolicy: Always
         name: tftp-folder-setup
         command:
